@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { login } from "../api";
+import { Building2 } from "lucide-react";
 
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("demo1@ivy.homes");
@@ -22,28 +23,47 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div style={{ maxWidth: "300px", margin: "100px auto", textAlign: "center" }}>
-      <h2>Login to Ivy Homes</h2>
-      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        <input 
-          type="email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          placeholder="Email" 
-          required 
-        />
-        <input 
-          type="password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          placeholder="Password" 
-          required 
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
-        </button>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-      </form>
+    <div className="min-h-[80vh] flex items-center justify-center">
+      <div className="w-full max-w-md space-y-8 p-10 bg-white rounded-2xl shadow-xl border border-gray-100">
+        <div className="text-center">
+          <Building2 className="mx-auto h-12 w-12 text-black" />
+          <h2 className="mt-6 text-3xl font-extrabold text-gray-900 tracking-tight">
+            Ivy Homes
+          </h2>
+          <p className="mt-2 text-sm text-gray-500">Sign in to your account</p>
+        </div>
+        
+        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          <div className="space-y-4">
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email address</label>
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                className="input-field"
+                required 
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                className="input-field"
+                required 
+              />
+            </div>
+          </div>
+          
+          {error && <p className="text-sm text-red-600 bg-red-50 p-3 rounded-md">{error}</p>}
+          
+          <button type="submit" disabled={loading} className="btn w-full text-base">
+            {loading ? "Signing in..." : "Sign in"}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

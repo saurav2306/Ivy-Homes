@@ -11,7 +11,7 @@ The application is built using React and Vite.
 
 ## LLM Usage
 
-I used an LLM (Gemini/Claude) via an AI coding assistant to help explore the API, write the Python analysis scripts to crunch the dataset, generate this README, and build the React frontend.
+I used an LLM (Gemini/Claude) in antigravity CLI to help explore the API, write the Python analysis scripts to crunch the dataset, and help build the React frontend.
 
 ## How I worked out which parts of the documentation to distrust
 
@@ -36,5 +36,3 @@ Some of my hypotheses about API breakage didn't pan out. Here is what worked per
 
 - **State Management & Caching**: Replace standard React State and fetch calls with React Query (TanStack Query) to handle caching and the 15-minute token refresh flow more gracefully.
 - **Visual Polish**: Use a component library like Tailwind CSS, shadcn/ui, or Material-UI to build a highly responsive and polished grid layout, sophisticated filter drawers, and better skeleton loaders.
-- **Deep Fraud Analysis (ML)**: The fake listings pattern is likely much deeper than simple contact-aggregation. I'd implement ML clustering (e.g., using embeddings on descriptions and anomaly detection on price/area ratios) to catch sophisticated fakes across different contacts.
-- **Cross-Site Duplicate Merging**: Build a robust deduplication engine that groups listings across the 5 different websites (`100acres`, `magichomes`, etc.) into single canonical properties based on geographic coordinates, floor, and area overlap.

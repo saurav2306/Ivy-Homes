@@ -1,0 +1,4 @@
+*.json
+!submission.json
+__pycache__/
+frontend/node_modules/
